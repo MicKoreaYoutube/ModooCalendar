@@ -1,0 +1,38 @@
+<title>M캘린더 - 로그인</title>
+<body class="content">
+	<div class="center font">
+		<br><br><br><br>
+	<h2>로그인</h2>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<div class="field">
+    <label for="user_email">이메일</label><br>
+<div class="input-group mb-3">
+  <input type="text" class="form-control" placeholder="이메일 입력" aria-label="Username" aria-describedby="basic-addon1" autofocus="autofocus" autocomplete="email" type="email" value="" name="user[email]" id="user_email" required>
+</div>
+</div>
+
+<div class="field">
+    <label for="user_password">비밀번호</label><br>
+<div class="input-group mb-3">
+  <input type="password" class="form-control" placeholder="비밀번호 입력" aria-label="Username" aria-describedby="basic-addon1" autocomplete="current-password" type="password" name="user[password]" id="user_password" required>
+</div>
+</div>
+
+  <% if devise_mapping.rememberable? %>
+	<div class="field">
+      <input name="user[remember_me]" type="hidden" value="0"><input type="checkbox" value="1" name="user[remember_me]" id="user_remember_me" class="form-check-input mt-0">
+      <label for="user_remember_me">기억하기</label>
+    </div>
+  <% end %>
+
+  <div class="actions">
+<input type="submit" name="commit" value="로그인" data-disable-with="Log in" class="btn btn-outline-success">
+  </div>
+<% end %>
+<hr>
+계정이 없으신가요?
+<input type="button" value="회원가입" data-disable-with="Log in" class="btn btn-outline-success" onclick="location.href = '/users/sign_up'">
+	</div>
+	<br><br><br><br>
+</body>
